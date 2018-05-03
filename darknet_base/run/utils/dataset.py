@@ -17,7 +17,7 @@ def prepare_dataset(path_to_zip, out_folder, validate=False):
     with ZipFile(path_to_zip) as zip_file:
         annotaions_json = None
         with zip_file.open('annotations.json') as annotations_file:
-            annotaions_json = json.load(annotations_file)
+            annotaions_json = json.loads(annotations_file.read().decode("utf-8"))
 
 
         raw_images = annotaions_json['images']
